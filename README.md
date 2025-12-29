@@ -47,26 +47,35 @@ The codebase emphasizes clean separation of concerns and loose coupling:
 
 ```text
 Arkanoid/
-├─ biuoop-1.4.jar
-├─ src/
-│  ├─ ArkanoidGame.java                # Entry point
-│  ├─ Arkanoid/GameAssets/
-│  │  ├─ Game.java                 # Main loop, initialization, orchestration
-│  │  ├─ GameEnvironment.java      # Collision space (list of Collidable)
-│  │  ├─ HitListener.java          # Event interface
-│  │  ├─ HitNotifier.java          # Event source interface
-│  │  └─ ScoreTrackingListener.java# +5 on block removal
-│  ├─ Arkanoid/Geometry/           # Geometry & physics helpers
-│  │  ├─ Point.java, Line.java, Rectangle.java, Velocity.java, CollisionInfo.java
-│  ├─ Arkanoid/Sprites/
-│  │  ├─ Sprite.java, SpriteCollection.java   # Drawable/tickable entities
-│  │  ├─ Collidable.java                       # Collision contracts
-│  │  ├─ Ball.java                             # Ball, color changes on hit
-│  │  ├─ Block.java                            # Removable, notifies listeners
-│  │  ├─ Paddle.java                           # Player paddle + wrap logic
-│  │  ├─ BlockRemover.java / BallRemover.java  # Event listeners
-│  │  └─ ScoreIndicator.java                   # Top UI with score
-│  └─ Arkanoid/Utils/
-│     ├─ Counter.java                          # Simple counter
-│     └─ Operations.java                       # Epsilon compare, random color, etc.
-└─ README.md
+├── .idea/                         
+├── src/                           
+│   ├── game/                      
+│   │   ├── Counter.java           
+│   │   ├── Game.java              
+│   │   └── GameEnvironment.java   
+│   ├── geometry/                  
+│   │   ├── Line.java              
+│   │   ├── Point.java             
+│   │   └── Rectangle.java         
+│   ├── listeners/                 
+│   │   ├── BallRemover.java       
+│   │   ├── BlockRemover.java      
+│   │   ├── HitListener.java       
+│   │   ├── HitNotifier.java       
+│   │   ├── ScoreIndicator.java    
+│   │   └── ScoreTrackingListener.java
+│   ├── sprite/                    
+│   │   ├── Ball.java              
+│   │   ├── Block.java             
+│   │   ├── Collidable.java        
+│   │   ├── CollisionInfo.java     
+│   │   ├── Paddle.java            
+│   │   ├── Sprite.java            
+│   │   ├── SpriteCollection.java  
+│   │   └── Velocity.java          
+│   └── ArkanoidGame.java          
+├── .gitignore                     
+├── README.md                      
+├── biuoop-1.4.jar                 
+└── build.xml
+
